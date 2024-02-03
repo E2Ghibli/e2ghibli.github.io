@@ -252,18 +252,12 @@ function initPlayer(id, handle, options) {
 				hideLoadingIcon();
 
 				var duration;
-				
-				if (media.duration == NaN || media.duration == Infinity || media.duration == 0 || media.hlsPlayer) {
-					options.offset = 0;
-					options.duration = false;
-					options.loop = false;
-				} else {
-					options.duration = media.duration;
-				}
 
 				if (media.youTubeApi) {
 					options.title = media.youTubeApi.getVideoData().title;
 
+					console.log(media.youTubeApi.getVideoData())
+					
 					media.videoTracks = {length: 1};
 				} else if (media.hlsPlayer) {
 					media.videoTracks = media.hlsPlayer.videoTracks;
@@ -276,6 +270,14 @@ function initPlayer(id, handle, options) {
 					}
 				} else {
 					media.videoTracks = media.originalNode.videoTracks;
+				}
+
+				if (media.duration == NaN || media.duration == Infinity || media.duration == 0 || media.hlsPlayer) {
+					options.offset = 0;
+					options.duration = false;
+					options.loop = false;
+				} else {
+					options.duration = media.duration;
 				}
 
 				options.video = true;
