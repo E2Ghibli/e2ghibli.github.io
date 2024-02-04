@@ -256,7 +256,7 @@ function initPlayer(id, handle, options) {
 				if (media.youTubeApi) {
 					options.title = media.youTubeApi.getVideoData().title;
 					
-					console.log(JSON.parse(JSON.stringify(media.youTubeApi.getVideoData())));
+					console.log(JSON.stringify(media.youTubeApi.getVideoData()));
 					
 					media.videoTracks = {length: 1};
 				} else if (media.hlsPlayer) {
