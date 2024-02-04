@@ -256,10 +256,6 @@ function initPlayer(id, handle, options) {
 				if (media.youTubeApi) {
 					options.title = media.youTubeApi.getVideoData().title;
 					
-					console.log(JSON.stringify(media.youTubeApi.getIframe()));
-
-					console.dir(media.youTubeApi.getIframe());
-					
 					media.videoTracks = {length: 1};
 				} else if (media.hlsPlayer) {
 					media.videoTracks = media.hlsPlayer.videoTracks;
